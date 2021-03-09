@@ -4,32 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <title>Memo</title>
 </head>
 <body>
-    <div>
-        <module-one>
-        <ul>
-            <li>bruce</li>
-            <li>george smith</li>
-            <li>berkley</li>
-        </ul>
-        </module-one>
 
-        <module-two>
-            <div>another module</div>
-        </module-two>
+    <div class="container">
+        <input type="text" class="txtb" placeholder="Add a task">
 
-        <module-three>
-            <ul>
-                <li>good module one</li>
-                <li>good module two</li>
+        <div class="notcomp">
+            <h3>Not Completed</h3>
 
+        </div>
+        
+        <div class="comp">
+            <h3>Completed</h3>
 
-
-                
-            </ul>
-        </module-three>
+        </div>
     </div>
+
+
+    <script>
+        $(function(){
+            
+            $(".txtb").on("keyup",function(event){
+                if(event.keyCode == 13 && $(".txtb").val() != ""){
+                    let task = $("<div class='task'></div>").text($(".txtb").val());
+                    let del = $("<i class='fas fa-trash-alt'></i>").click(function(){
+                        var p = $(this).parent();
+                        p.fadeOut(function(){
+                            p.remove();
+                        });
+                    });
+                    let check = $("<i class='fas fa-check'></i>").click(function(){
+                        var p = $(this).parent();
+                        p.fadeOut(function(){
+                            $(".comp").append(p);
+                            p.fadeIn();
+                        });
+                        $(this).remove();
+                    });
+
+                    task.append(del,check);
+                    $(".notcomp").append(task);
+                    $(".txtb").val("");
+                }
+            })
+        })
+    </script>
 </body>
 </html>
