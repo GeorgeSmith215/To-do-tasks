@@ -16,14 +16,37 @@ body{
     padding: 10px;
 }
 
-.txtb{
+.taskAdd{
     width: 100%;
     border: none;
     border-bottom: 2px solid black;
+    padding: 5px;
+    outline: none;
+    margin-bottom: 5px;
+}
+
+.txtb{
+    width: 88%;
+    border: none;
     background: none;
     padding: 10px;
     outline: none;
     font-size: 20px;
+}
+
+#taskAddBtn{
+    padding: 15px;
+    float: right;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+#taskAddBtn:hover{
+    color: rgb(95, 95, 76);
+    background-color: #2980b9;
+    border-radius: 5px;
+    /* border: black solid; */
 }
 
 .task{
@@ -38,6 +61,8 @@ body{
     float: right;
     margin-left: 20px;
     cursor: pointer;
+    background: none;
+    border: none;
 }
 
 .comp .task{
