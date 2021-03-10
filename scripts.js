@@ -7,7 +7,7 @@ $(function(){
     var $taskText = $('.txtb');
 
     // PHP文件所在地址
-    var urlPre = "http://localhost/phpTask/"
+    var urlPre = 'http://localhost/phpTask/';
 
 
     // 获取taskItem模板
@@ -36,8 +36,8 @@ $(function(){
         //请求成功
         success : function(tasks) {
             // console.log(tasks);
-            tasks = eval(tasks);
-            $.each(tasks,function(i,task){
+            let tasksJson = eval('(' + tasks + ')');
+            $.each(tasksJson,function(i,task){
                 addTaskItem(task);
                 // console.log(task);
             });
@@ -235,8 +235,5 @@ $(function(){
             addTask();
         }
     });
-
-    
-
 
 })
